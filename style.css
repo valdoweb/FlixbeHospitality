@@ -13,3 +13,238 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: minimalis
 Tags: blog, one-column, accessibility-ready, block-styles, full-site-editing
 */
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  transition: all 0.3s ease;
+}
+
+/* Header Enhancements */
+.wp-block-group header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.wp-block-site-title a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--wp--preset--color--primary), var(--wp--preset--color--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navigation Styling */
+.wp-block-navigation ul {
+  gap: 2rem;
+}
+
+.wp-block-navigation a {
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.wp-block-navigation a:hover {
+  background: rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Button Enhancements */
+.wp-block-button__link {
+  border-radius: 0.75rem;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.wp-block-button__link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.has-primary-background-color {
+  background: linear-gradient(135deg, var(--wp--preset--color--primary), #3b82f6) !important;
+}
+
+.has-accent-background-color {
+  background: linear-gradient(135deg, var(--wp--preset--color--accent), #059669) !important;
+}
+
+/* Post Content Styling */
+.wp-block-post-title a {
+  text-decoration: none;
+  color: var(--wp--preset--color--fg);
+  transition: color 0.3s ease;
+}
+
+.wp-block-post-title a:hover {
+  color: var(--wp--preset--color--primary);
+}
+
+/* Card-like styling for posts */
+.wp-block-post-template > * {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.wp-block-post-template > *:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Hero Section Enhancements */
+.wp-block-group[style*="padding-top:3rem"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.wp-block-group[style*="padding-top:3rem"] h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.wp-block-group[style*="padding-top:3rem"] p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+/* Footer Styling */
+footer.wp-block-group {
+  background: var(--wp--preset--color--fg);
+  color: white;
+  margin-top: 4rem;
+  border-radius: 2rem 2rem 0 0;
+}
+
+footer.wp-block-group a {
+  color: var(--wp--preset--color--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Search Form Styling */
+.wp-block-search {
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.wp-block-search__input {
+  border-radius: 0.75rem;
+  border: 2px solid var(--wp--preset--color--primary);
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.wp-block-search__input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  transform: scale(1.02);
+}
+
+.wp-block-search__button {
+  background: var(--wp--preset--color--primary);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wp-block-search__button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Separator Styling */
+.wp-block-separator {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--wp--preset--color--muted), transparent);
+  margin: 3rem 0;
+}
+
+/* Pagination Styling */
+.wp-block-query-pagination a {
+  background: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--wp--preset--color--primary);
+  border: 2px solid var(--wp--preset--color--primary);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.wp-block-query-pagination a:hover {
+  background: var(--wp--preset--color--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Content Spacing */
+main.wp-block-group {
+  padding: 2rem 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wp-block-group[style*="padding-top:3rem"] h1 {
+    font-size: 2rem;
+  }
+  
+  .wp-block-group[style*="padding-top:3rem"] p {
+    font-size: 1rem;
+  }
+  
+  .wp-block-navigation ul {
+    gap: 1rem;
+  }
+  
+  .wp-block-post-template > * {
+    padding: 1.5rem;
+  }
+}
+
+/* Smooth animations */
+.wp-block-group,
+.wp-block-button,
+.wp-block-post-template > * {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--wp--preset--color--primary);
+  outline-offset: 2px;
+}
