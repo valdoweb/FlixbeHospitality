@@ -41,10 +41,7 @@ body {
   text-decoration: none;
   font-weight: 700;
   font-size: 1.5rem;
-  background: linear-gradient(135deg, var(--wp--preset--color--primary), var(--wp--preset--color--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--wp--preset--color--fg);
 }
 
 /* Navigation Styling */
@@ -62,7 +59,7 @@ body {
 }
 
 .wp-block-navigation a:hover {
-  background: rgba(37, 99, 235, 0.1);
+  background: rgba(17, 17, 17, 0.1);
   transform: translateY(-2px);
 }
 
@@ -98,7 +95,8 @@ body {
 }
 
 .wp-block-post-title a:hover {
-  color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--fg);
+  opacity: 0.7;
 }
 
 /* Card-like styling for posts */
@@ -145,7 +143,7 @@ footer.wp-block-group {
 }
 
 footer.wp-block-group a {
-  color: var(--wp--preset--color--accent);
+  color: white;
   text-decoration: none;
   font-weight: 600;
 }
@@ -200,14 +198,14 @@ footer.wp-block-group a {
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
   text-decoration: none;
-  color: var(--wp--preset--color--primary);
-  border: 2px solid var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--fg);
+  border: 2px solid var(--wp--preset--color--fg);
   transition: all 0.3s ease;
   font-weight: 600;
 }
 
 .wp-block-query-pagination a:hover {
-  background: var(--wp--preset--color--primary);
+  background: var(--wp--preset--color--fg);
   color: white;
   transform: translateY(-2px);
 }
