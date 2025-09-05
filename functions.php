@@ -31,3 +31,40 @@ function flixbe_hospitality_theme_support() {
     add_theme_support('align-wide');
 }
 add_action('after_setup_theme', 'flixbe_hospitality_theme_support');
+
+// Register custom block styles
+function flixbe_hospitality_register_block_styles() {
+    // Register full-screen group styles
+    register_block_style(
+        'core/group',
+        array(
+            'name'  => 'fullscreen',
+            'label' => __('Full Screen', 'flixbe-hospitality'),
+        )
+    );
+    
+    register_block_style(
+        'core/group',
+        array(
+            'name'  => 'fullscreen-width',
+            'label' => __('Full Width', 'flixbe-hospitality'),
+        )
+    );
+    
+    register_block_style(
+        'core/group',
+        array(
+            'name'  => 'fullscreen-height',
+            'label' => __('Full Height', 'flixbe-hospitality'),
+        )
+    );
+    
+    register_block_style(
+        'core/group',
+        array(
+            'name'  => 'full-viewport',
+            'label' => __('Edge to Edge', 'flixbe-hospitality'),
+        )
+    );
+}
+add_action('init', 'flixbe_hospitality_register_block_styles');
