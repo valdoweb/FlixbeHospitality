@@ -24,6 +24,7 @@ body {
   padding: 0;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   transition: all 0.3s ease;
+  padding-top: 80px;
 }
 
 /* Header Enhancements */
@@ -41,10 +42,6 @@ header.wp-block-group {
   transition: all 0.3s ease;
 }
 
-/* Add padding to body to compensate for fixed header */
-body {
-  padding-top: 80px;
-}
 
 .wp-block-site-title a {
   text-decoration: none;
