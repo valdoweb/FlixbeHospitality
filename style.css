@@ -141,16 +141,15 @@ body {
 
 /* Footer Styling */
 footer.wp-block-group {
-  background: var(--wp--preset--color--fg);
-  color: white;
-  margin-top: 4rem;
-  border-radius: 2rem 2rem 0 0;
+  background: #f8f9fa !important;
+  color: var(--wp--preset--color--fg);
+  margin-top: 2rem;
+  border-top: 1px solid #e9ecef;
 }
 
-footer.wp-block-group a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
+footer.wp-block-group p {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 /* Search Form Styling */
