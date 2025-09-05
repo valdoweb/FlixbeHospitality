@@ -218,7 +218,20 @@ footer.wp-block-group a {
 
 /* Content Spacing */
 main.wp-block-group {
-  padding: 2rem 1rem;
+  padding: 0 1rem;
+  margin-top: 0;
+}
+
+/* Remove default spacing from post content */
+.wp-block-post-content {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Ensure no extra spacing on page/single templates */
+main.wp-block-group > .wp-block-post-content:first-child {
+  margin-top: 0;
+  padding-top: 2rem;
 }
 
 /* Responsive Design */
