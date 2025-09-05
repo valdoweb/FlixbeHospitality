@@ -29,6 +29,9 @@ function flixbe_hospitality_theme_support() {
     
     // Add support for wide alignment
     add_theme_support('align-wide');
+    
+    // Let WordPress manage the document title
+    add_theme_support('title-tag');
 }
 add_action('after_setup_theme', 'flixbe_hospitality_theme_support');
 
