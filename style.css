@@ -231,7 +231,7 @@ main.wp-block-group {
 /* Ensure no extra spacing on page/single templates */
 main.wp-block-group > .wp-block-post-content:first-child {
   margin-top: 0;
-  padding-top: 2rem;
+  padding-top: 0;
 }
 
 /* Responsive Design */
