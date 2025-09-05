@@ -140,16 +140,22 @@ body {
 }
 
 /* Footer Styling */
-footer.wp-block-group {
-  background: #f8f9fa !important;
-  color: var(--wp--preset--color--fg);
+.site-footer {
   margin-top: 2rem;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-footer.wp-block-group p {
+.site-footer.has-bg-background-color {
+  background-color: var(--wp--preset--color--bg) !important;
+}
+
+.site-footer.has-fg-color {
+  color: var(--wp--preset--color--fg) !important;
+}
+
+.site-footer p {
   margin: 0;
-  font-size: 0.9rem;
 }
 
 /* Search Form Styling */
