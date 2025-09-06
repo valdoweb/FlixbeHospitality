@@ -60,41 +60,93 @@ function flixbe_hospitality_inline_mobile_menu_script() {
         const mobileNav = document.getElementById('mobile-navigation');
         
         if (mobileToggle && mobileNav) {
+            // Set initial ARIA states
+            mobileNav.setAttribute('aria-hidden', 'true');
+            
             mobileToggle.addEventListener('click', function() {
                 const isExpanded = this.getAttribute('aria-expanded') === 'true';
                 
-                // Toggle aria-expanded
+                // Toggle aria-expanded and aria-hidden
                 this.setAttribute('aria-expanded', !isExpanded);
+                mobileNav.setAttribute('aria-hidden', isExpanded);
+                
+                // Update button label
+                this.setAttribute('aria-label', !isExpanded ? 'Close mobile navigation menu' : 'Open mobile navigation menu');
                 
                 // Toggle active classes
                 this.classList.toggle('active');
                 mobileNav.classList.toggle('active');
                 
-                // Prevent body scroll when menu is open
+                // Prevent body scroll when menu is open and focus management
                 if (!isExpanded) {
                     document.body.style.overflow = 'hidden';
+                    // Focus first menu item
+                    const firstMenuItem = mobileNav.querySelector('a');
+                    if (firstMenuItem) {
+                        firstMenuItem.focus();
+                    }
                 } else {
                     document.body.style.overflow = '';
+                }
+            });
+            
+            // Handle keyboard navigation
+            mobileToggle.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    this.click();
+                }
+            });
+            
+            // Handle escape key to close menu
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && mobileNav.classList.contains('active')) {
+                    closeMenu();
+                    mobileToggle.focus();
                 }
             });
             
             // Close menu when clicking outside
             document.addEventListener('click', function(event) {
                 if (!mobileToggle.contains(event.target) && !mobileNav.contains(event.target)) {
-                    mobileToggle.classList.remove('active');
-                    mobileNav.classList.remove('active');
-                    mobileToggle.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
+                    closeMenu();
                 }
             });
             
             // Close menu on window resize if larger than mobile breakpoint
             window.addEventListener('resize', function() {
                 if (window.innerWidth > 768) {
-                    mobileToggle.classList.remove('active');
-                    mobileNav.classList.remove('active');
-                    mobileToggle.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
+                    closeMenu();
+                }
+            });
+            
+            function closeMenu() {
+                mobileToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                mobileNav.setAttribute('aria-hidden', 'true');
+                mobileToggle.setAttribute('aria-label', 'Open mobile navigation menu');
+                document.body.style.overflow = '';
+            }
+            
+            // Trap focus within mobile menu when open
+            mobileNav.addEventListener('keydown', function(event) {
+                if (event.key === 'Tab') {
+                    const focusableElements = mobileNav.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+                    const firstElement = focusableElements[0];
+                    const lastElement = focusableElements[focusableElements.length - 1];
+                    
+                    if (event.shiftKey) {
+                        if (document.activeElement === firstElement) {
+                            event.preventDefault();
+                            lastElement.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastElement) {
+                            event.preventDefault();
+                            firstElement.focus();
+                        }
+                    }
                 }
             });
         }

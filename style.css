@@ -454,3 +454,177 @@ main.wp-block-group > .wp-block-post-content:first-child {
   outline: 2px solid var(--wp--preset--color--primary);
   outline-offset: 2px;
 }
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--wp--preset--color--primary);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* High contrast focus for better visibility */
+.wp-block-navigation a:focus-visible,
+.wp-block-button__link:focus-visible,
+.mobile-menu-toggle:focus-visible {
+  outline: 3px solid var(--wp--preset--color--primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px white, 0 0 0 4px var(--wp--preset--color--primary);
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--wp--preset--color--fg);
+  color: var(--wp--preset--color--bg);
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 4px 4px;
+  z-index: 10000;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Improve color contrast for better readability */
+.wp-block-navigation a {
+  color: var(--wp--preset--color--fg);
+  font-weight: 600;
+}
+
+.wp-block-post-title a {
+  color: var(--wp--preset--color--fg);
+  font-weight: 600;
+}
+
+/* Ensure minimum target size for touch devices */
+.wp-block-navigation a,
+.wp-block-button__link,
+.mobile-menu-toggle {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .wp-block-navigation a,
+  .wp-block-post-title a,
+  .wp-block-button__link {
+    border: 2px solid currentColor;
+  }
+  
+  #site-header {
+    border-bottom: 3px solid var(--wp--preset--color--fg);
+  }
+}
+
+/* Improve mobile menu accessibility */
+.mobile-navigation[aria-hidden="true"] {
+  display: none;
+}
+
+.mobile-navigation[aria-hidden="false"] {
+  display: block;
+}
+
+/* Ensure interactive elements are clearly distinguished */
+button, 
+a, 
+[role="button"] {
+  cursor: pointer;
+}
+
+button:disabled,
+a[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Improve form accessibility */
+input, 
+textarea, 
+select {
+  border: 2px solid var(--wp--preset--color--muted);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--wp--preset--color--primary);
+  outline-offset: 2px;
+  border-color: var(--wp--preset--color--primary);
+}
+
+/* Error and success states */
+.has-error {
+  border-color: #dc2626 !important;
+  color: #dc2626;
+}
+
+.has-success {
+  border-color: #16a34a !important;
+  color: #16a34a;
+}
+
+/* Ensure sufficient color contrast */
+:root {
+  --text-contrast-ratio: 4.5;
+  --large-text-contrast-ratio: 3;
+}
+
+/* Dark mode improvements for accessibility */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wp--preset--color--bg: #111111;
+    --wp--preset--color--fg: #ffffff;
+    --wp--preset--color--muted: #9ca3af;
+  }
+  
+  #site-header {
+    background: rgba(17, 17, 17, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .mobile-navigation {
+    background: rgba(17, 17, 17, 0.98);
+  }
+}
