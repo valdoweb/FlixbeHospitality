@@ -341,6 +341,21 @@ main.wp-block-group > .wp-block-post-content:first-child {
   padding-top: 0;
 }
 
+/* Desktop styles - hide mobile menu */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  .mobile-navigation {
+    display: none !important;
+  }
+  
+  .desktop-navigation {
+    display: flex !important;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .wp-block-group[style*="padding-top:3rem"] h1 {
