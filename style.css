@@ -19,11 +19,16 @@ Tags: blog, one-column, accessibility-ready, block-styles, full-site-editing
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
   transition: all 0.3s ease;
   padding-top: 80px;
+  overflow-x: hidden;
 }
 
 /* Header Enhancements */
@@ -395,23 +400,25 @@ main.wp-block-group > .wp-block-post-content:first-child {
 .is-style-fullscreen,
 .wp-block-group.is-style-fullscreen {
   position: relative;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .is-style-fullscreen-width,
 .wp-block-group.is-style-fullscreen-width {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .is-style-fullscreen-height,
@@ -420,19 +427,21 @@ main.wp-block-group > .wp-block-post-content:first-child {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 /* Full viewport without margins for edge-to-edge design */
 .is-style-full-viewport,
 .wp-block-group.is-style-full-viewport {
   position: relative;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  margin-left: 0;
+  margin-right: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Centered content within full-screen groups */
