@@ -1,6 +1,19 @@
 <!-- wp:group {"style":{"spacing":{"padding":{"right":"1rem","left":"1rem"}}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
 <div id="site-header" class="wp-block-group" style="padding-right:1rem;padding-left:1rem">
   <!-- wp:site-title {"level":1} /-->
-  <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","justifyContent":"right","orientation":"horizontal"}} /-->
+  
+  <!-- Mobile Menu Button -->
+  <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+  </button>
+  
+  <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","justifyContent":"right","orientation":"horizontal"},"className":"desktop-navigation"} /-->
+  
+  <!-- Mobile Navigation Overlay -->
+  <div id="mobile-navigation" class="mobile-navigation">
+    <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"},"className":"mobile-nav-menu"} /-->
+  </div>
 </div>
 <!-- /wp:group -->
